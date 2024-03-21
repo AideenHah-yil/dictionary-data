@@ -14,11 +14,28 @@ def suggest_word(word, dictionary):
     else:
         return "No close match found"
 
-def get_defination(word, dictionary):
+def get_definition(word, dictionary):
     word = word.lower() #converts word to lowercase
     if word in dictionary:
         return dictionary[word]
     else: 
         return "Word not found"
+    
+
+
+def main():
+    dictionary = load_dictionary('data.json')
+    word = input("Enter a word: ")
+    definition = get_definition(word, dictionary)
+    if definition == "Word not found in dictionary.":
+        suggestion = suggest_word(word, dictionary)
+        print(definition)
+        print(suggestion)
+    else: 
+        print(definition)
+
+
+if __name__ == "__main__":
+    main()        
     
 
